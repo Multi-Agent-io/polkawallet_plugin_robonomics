@@ -14,7 +14,7 @@ import 'package:polkawallet_ui/pages/dAppWrapperPage.dart';
 import 'package:polkawallet_ui/pages/v3/txConfirmPage.dart';
 import 'package:polkawallet_ui/pages/walletExtensionSignPage.dart';
 
-import 'pages/metaHub.dart';
+import 'pages/meta_hub/meta_hub_panel.dart';
 
 class PluginRobonomics extends PolkawalletPlugin {
   /// the robonomics plugin support two networks: robonomics & polkadot,
@@ -26,12 +26,9 @@ class PluginRobonomics extends PolkawalletPlugin {
           ss58: 32,
           primaryColor: robonomics_black,
           gradientColor: Color(0xFF555555),
-          backgroundImage: AssetImage(
-              'packages/polkawallet_plugin_robonomics/assets/images/public/bg_robonomics.png'),
-          icon: Image.asset(
-              'packages/polkawallet_plugin_robonomics/assets/images/public/robonomics.png'),
-          iconDisabled: Image.asset(
-              'packages/polkawallet_plugin_robonomics/assets/images/public/robonomics_gray.png'),
+          backgroundImage: AssetImage('packages/polkawallet_plugin_robonomics/assets/images/public/bg_robonomics.png'),
+          icon: Image.asset('packages/polkawallet_plugin_robonomics/assets/images/public/robonomics.png'),
+          iconDisabled: Image.asset('packages/polkawallet_plugin_robonomics/assets/images/public/robonomics_gray.png'),
           jsCodeVersion: 31501,
           isTestNet: false,
           isXCMSupport: true,
@@ -51,10 +48,8 @@ class PluginRobonomics extends PolkawalletPlugin {
 
   @override
   final Map<String, Widget> tokenIcons = {
-    'KSM': Image.asset(
-        'packages/polkawallet_plugin_robonomics/assets/images/tokens/KSM.png'),
-    'DOT': Image.asset(
-        'packages/polkawallet_plugin_robonomics/assets/images/tokens/DOT.png'),
+    'KSM': Image.asset('packages/polkawallet_plugin_robonomics/assets/images/tokens/KSM.png'),
+    'DOT': Image.asset('packages/polkawallet_plugin_robonomics/assets/images/tokens/DOT.png'),
   };
 
   @override
@@ -73,20 +68,14 @@ class PluginRobonomics extends PolkawalletPlugin {
   @override
   Map<String, WidgetBuilder> getRoutes(Keyring keyring) {
     return {
-      TxConfirmPage.route: (_) => TxConfirmPage(
-          this,
-          keyring,
-          _service.getPassword as Future<String> Function(
-              BuildContext, KeyPairData)),
+      TxConfirmPage.route: (_) =>
+          TxConfirmPage(this, keyring, _service.getPassword as Future<String> Function(BuildContext, KeyPairData)),
 
 //
 
       DAppWrapperPage.route: (_) => DAppWrapperPage(this, keyring),
       WalletExtensionSignPage.route: (_) => WalletExtensionSignPage(
-          this,
-          keyring,
-          _service.getPassword as Future<String> Function(
-              BuildContext, KeyPairData)),
+          this, keyring, _service.getPassword as Future<String> Function(BuildContext, KeyPairData)),
     };
   }
 
