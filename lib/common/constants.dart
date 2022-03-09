@@ -5,12 +5,12 @@ const int SECONDS_OF_YEAR = 365 * 24 * 60 * 60; // seconds of one year
 
 const node_list_robonomics = [
   {
-    'name': 'Robonomics (via Robonomics)',
+    'name': 'Robonomics (via Multi-Agent.io)',
     'ss58': 32,
     'endpoint': 'wss://kusama.rpc.robonomics.network',
   },
 ];
-const home_nav_items = ['staking', 'governance', 'parachain'];
+const home_nav_items = ['launch','datalog'];
 
 const MaterialColor robonomics_black = const MaterialColor(
   0xFF222222,

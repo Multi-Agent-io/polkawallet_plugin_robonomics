@@ -14,6 +14,8 @@ import 'package:polkawallet_ui/pages/dAppWrapperPage.dart';
 import 'package:polkawallet_ui/pages/v3/txConfirmPage.dart';
 import 'package:polkawallet_ui/pages/walletExtensionSignPage.dart';
 
+import 'pages/metaHub.dart';
+
 class PluginRobonomics extends PolkawalletPlugin {
   /// the robonomics plugin support two networks: robonomics & polkadot,
   /// so we need to identify the active network to connect & display UI.
@@ -57,16 +59,15 @@ class PluginRobonomics extends PolkawalletPlugin {
 
   @override
   List<HomeNavItem> getNavItems(BuildContext context, Keyring keyring) {
-    return home_nav_items.map((e) {
-      return HomeNavItem(
-          text: e,
-          icon: Container(),
-          iconActive: Container(),
-          content: Container(),
-          onTap: () {
-            Navigator.of(context).pushNamed('/$e/index');
-          });
-    }).toList();
+    return [
+      HomeNavItem(
+        text: basic.name!.toUpperCase(),
+        icon: Container(),
+        iconActive: Container(),
+        isAdapter: true,
+        content: MetaHubPanel(this),
+      ),
+    ];
   }
 
   @override
