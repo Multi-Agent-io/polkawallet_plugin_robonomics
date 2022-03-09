@@ -27,14 +27,14 @@ class _LaunchPageState extends State<LaunchPage> {
             },
             getTxParams: () async {
               return TxConfirmParams(
-                txTitle: 'Launch some shit',
-                module: 'Launch',
+                txTitle: 'Launch some',
+                module: 'launch',
                 call: 'launch',
                 params: [
                   // params.robot
-                  '4DRbjJ6eJVrh13z2P3Us5Mwn6UAGp8ri48PXxrdL5yRwy8mE',
+                  '.....',
                   // params.param
-                  true
+                  '0x0000000000000000000000000000000000000000000000000000000000004f4e',
                 ],
               );
             },
