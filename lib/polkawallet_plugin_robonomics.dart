@@ -25,12 +25,9 @@ class PluginRobonomics extends PolkawalletPlugin {
           ss58: 32,
           primaryColor: robonomics_black,
           gradientColor: Color(0xFF2948d3),
-          backgroundImage: AssetImage(
-              'packages/polkawallet_plugin_robonomics/assets/images/public/bg_robonomics.png'),
-          icon: Image.asset(
-              'packages/polkawallet_plugin_robonomics/assets/images/public/robonomics.png'),
-          iconDisabled: Image.asset(
-              'packages/polkawallet_plugin_robonomics/assets/images/public/robonomics_gray.png'),
+          backgroundImage: AssetImage('packages/polkawallet_plugin_robonomics/assets/images/public/bg_robonomics.png'),
+          icon: Image.asset('packages/polkawallet_plugin_robonomics/assets/images/public/robonomics.png'),
+          iconDisabled: Image.asset('packages/polkawallet_plugin_robonomics/assets/images/public/robonomics_gray.png'),
           jsCodeVersion: 31501,
           isTestNet: false,
           isXCMSupport: true,
@@ -50,10 +47,8 @@ class PluginRobonomics extends PolkawalletPlugin {
 
   @override
   final Map<String, Widget> tokenIcons = {
-    'KSM': Image.asset(
-        'packages/polkawallet_plugin_robonomics/assets/images/tokens/KSM.png'),
-    'DOT': Image.asset(
-        'packages/polkawallet_plugin_robonomics/assets/images/tokens/DOT.png'),
+    'KSM': Image.asset('packages/polkawallet_plugin_robonomics/assets/images/tokens/KSM.png'),
+    'DOT': Image.asset('packages/polkawallet_plugin_robonomics/assets/images/tokens/DOT.png'),
   };
 
   @override
@@ -96,10 +91,10 @@ class PluginRobonomics extends PolkawalletPlugin {
     _service = PluginApi(this, keyring);
   }
 
-  // @override
-  // Future<void> onStarted(Keyring keyring) async {
-  //   _service.staking.queryElectedInfo();
-  // }
+  @override
+  Future<void> onStarted(Keyring keyring) async {
+    _service.staking.queryElectedInfo();
+  }
 
   @override
   Future<void> onAccountChanged(KeyPairData acc) async {
