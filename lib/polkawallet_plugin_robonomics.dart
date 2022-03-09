@@ -24,7 +24,7 @@ class PluginRobonomics extends PolkawalletPlugin {
           // genesisHash: genesis_hash_robonomics,
           ss58: 32,
           primaryColor: robonomics_black,
-          gradientColor: Color(0xFF555555),
+          gradientColor: Color(0xFF2948d3),
           backgroundImage: AssetImage(
               'packages/polkawallet_plugin_robonomics/assets/images/public/bg_robonomics.png'),
           icon: Image.asset(
