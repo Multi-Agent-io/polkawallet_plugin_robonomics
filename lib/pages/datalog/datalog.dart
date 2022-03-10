@@ -69,9 +69,6 @@ class _DatalogPageState extends State<DatalogPage> {
               ),
               const SizedBox(height: 16),
               TxButton(
-                onFinish: (res) {
-                  print(res);
-                },
                 getTxParams: () async {
                   validate();
                   if (hasError) {

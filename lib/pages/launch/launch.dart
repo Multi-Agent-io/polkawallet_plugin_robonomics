@@ -64,17 +64,14 @@ class _LaunchPageState extends State<LaunchPage> {
             ),
             const SizedBox(height: 16),
             ListTile(
+              title: Text('Launch param'),
               trailing: CupertinoSwitch(
                 value: _launchValue,
                 onChanged: toggleLaunchValue,
               ),
-              title: Text('Launch param'),
             ),
             const SizedBox(height: 16),
             TxButton(
-              onFinish: (res) {
-                print(res);
-              },
               getTxParams: () async {
                 if (_account == null) {
                   setState(() {

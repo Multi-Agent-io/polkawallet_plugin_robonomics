@@ -10,7 +10,7 @@ const node_list_robonomics = [
     'endpoint': 'wss://kusama.rpc.robonomics.network',
   },
 ];
-const home_nav_items = ['launch','datalog'];
+const home_nav_items = ['launch', 'datalog'];
 
 const MaterialColor robonomics_black = const MaterialColor(
   0xFF222222,
