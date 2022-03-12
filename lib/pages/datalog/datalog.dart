@@ -44,10 +44,28 @@ class _DatalogPageState extends State<DatalogPage> {
   }
 
   Future<void> read() async {
-    final dynamic res =
+    final address =
+        widget.pluginRobonomics.service.staking.keyring.current.address;
+    final dynamic indexInRing =
         await widget.pluginRobonomics.sdk.api.service.webView!.evalJavascript(
-      'api.query.datalog.datalog(${widget.pluginRobonomics.service.staking.keyring.current.address})',
+      'api.query.datalog.datalogIndex($address)',
     );
+//=> {start, end}
+// {
+//   start: 31
+//   end: 30
+// }
+
+    final index = 1;
+    final dynamic datalogItem =
+        await widget.pluginRobonomics.sdk.api.service.webView!.evalJavascript(
+      'api.query.datalog.datalogItem($address,$index)',
+    );
+//=> [timestamp(int),data(json)]
+// [
+//   1642583340411
+//   {'type': 'KEEP_ALIVE', 'state': 'COMPLETE', 'power': {'activeW': 17, 'activeDeltaW': 0, 'reactiveVar': 14, 'reactiveDeltaVar': 0, 'apparentVa': 27}, 'currentA': 0.118, 'voltageV': 227.735, 'phaseDeg': 40.7, 'energyConsumptionWh': 1096329, 'energyConsumptionDeltaWh': 0, 'timestamp': '2022-01-19T08:56:34Z', 'eventId': 1050068, 'protocolVersion': 2, 'activePowerProd': 17, 'energyProd': 1094726, 'energyProdDelta': 0, 'activePowerCons': 0, 'energyCons': 1602, 'energyConsDelta': 0}
+// ]
   }
 
   @override
