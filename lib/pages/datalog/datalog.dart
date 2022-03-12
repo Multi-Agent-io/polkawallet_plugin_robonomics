@@ -14,6 +14,13 @@ class DatalogPage extends StatefulWidget {
 }
 
 class _DatalogPageState extends State<DatalogPage> {
+  Future<void> read() async {
+    final dynamic res =
+        await widget.pluginRobonomics.sdk.api.service.webView!.evalJavascript(
+      'api.query.datalog.datalog(${widget.pluginRobonomics.service.staking.keyring.current.address})',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
