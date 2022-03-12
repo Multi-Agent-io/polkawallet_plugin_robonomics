@@ -4,16 +4,16 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:polkawallet_plugin_robonomics/common/constants.dart';
-import 'package:polkawallet_plugin_robonomics/pages/datalog/datalog.dart';
+import 'package:polkawallet_plugin_robonomics/pages/launch/launch.dart';
+import 'package:polkawallet_plugin_robonomics/pages/meta_hub/meta_hub_panel.dart';
+import 'package:polkawallet_plugin_robonomics/pages/read_datalog/read_datalog.dart';
+import 'package:polkawallet_plugin_robonomics/pages/write_datalog/write_datalog.dart';
 import 'package:polkawallet_plugin_robonomics/service/index.dart';
 import 'package:polkawallet_sdk/api/types/networkParams.dart';
 import 'package:polkawallet_sdk/plugin/homeNavItem.dart';
 import 'package:polkawallet_sdk/plugin/index.dart';
 import 'package:polkawallet_sdk/storage/keyring.dart';
 import 'package:polkawallet_sdk/storage/types/keyPairData.dart';
-
-import 'pages/launch/launch.dart';
-import 'pages/meta_hub/meta_hub_panel.dart';
 
 class PluginRobonomics extends PolkawalletPlugin {
   /// the robonomics plugin support two networks: robonomics & polkadot,
@@ -68,7 +68,8 @@ class PluginRobonomics extends PolkawalletPlugin {
   Map<String, WidgetBuilder> getRoutes(Keyring keyring) {
     return {
       LaunchPage.route: (context) => LaunchPage(this),
-      DatalogPage.route: (context) => DatalogPage(this),
+      ReadDatalogPage.route: (context) => ReadDatalogPage(this),
+      WriteDatalogPage.route: (context) => WriteDatalogPage(this),
     };
   }
 
