@@ -72,7 +72,7 @@ class _ReadDatalogPageState extends State<ReadDatalogPage> {
     setLoading(true);
     try {
       await loadDatalogData(_selectedAccount!, index).timeout(Duration(seconds: 10));
-    } catch (_) {
+    } catch (e) {
       setState(() {
         hasDatalogDataError = true;
       });
@@ -91,7 +91,7 @@ class _ReadDatalogPageState extends State<ReadDatalogPage> {
 
   Future<void> loadDatalogData(KeyPairData account, int index) async {
     final dynamic datalogItem = await api.service.webView!.evalJavascript(
-      'api.query.datalog.datalogItem("${account.address}",$index)',
+      'api.query.datalog.datalogItem(["${account.address}",$index])',
     );
     datalogData = DatalogItem.fromJson(datalogItem);
   }

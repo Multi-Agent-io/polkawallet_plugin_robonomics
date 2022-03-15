@@ -1,6 +1,6 @@
 name: polkawallet_plugin_robonomics
 description: The robonomics network flutter plugin for polkawallet app.
-version: 0.3.6
+version: 0.3.7
 
 environment:
   sdk: '>=2.12.0 <3.0.0'

@@ -1,3 +1,5 @@
+import 'package:polkawallet_plugin_robonomics/utils/hex_utils.dart';
+
 class DatalogItem {
   DatalogItem(this.timestamp, this.jsonData);
 
@@ -5,8 +7,8 @@ class DatalogItem {
   final String jsonData;
 
   factory DatalogItem.fromJson(dynamic data) {
-    final timestamp = int.parse(data[0]);
-    final jsonData = data[1] as String;
+    final timestamp = data[0];
+    final jsonData = HexUtils.fromHexString(data[1] as String);
     return DatalogItem(timestamp, jsonData);
   }
 }
