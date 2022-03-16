@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:polkawallet_plugin_robonomics/common/models/datalog_index.dart';
 import 'package:polkawallet_plugin_robonomics/common/models/datalog_item.dart';
 import 'package:polkawallet_plugin_robonomics/polkawallet_plugin_robonomics.dart';
@@ -14,9 +13,9 @@ import 'package:polkawallet_ui/components/v3/back.dart';
 class ReadDatalogPage extends StatefulWidget {
   static const String route = '/robonomics/read_datalog';
 
-  ReadDatalogPage(this.pluginRobonomics, {Key? key}) : super(key: key);
+  ReadDatalogPage(this.plugin, {Key? key}) : super(key: key);
 
-  final PluginRobonomics pluginRobonomics;
+  final PluginRobonomics plugin;
 
   @override
   State<ReadDatalogPage> createState() => _ReadDatalogPageState();
@@ -32,15 +31,15 @@ class _ReadDatalogPageState extends State<ReadDatalogPage> {
   bool hasIndexesError = false;
   bool hasDatalogDataError = false;
 
-  PolkawalletApi get api => widget.pluginRobonomics.sdk.api;
+  PolkawalletApi get api => widget.plugin.sdk.api;
   List<KeyPairData> get accounts {
-    final keyring = widget.pluginRobonomics.service.staking.keyring;
-    keyring.setSS58(widget.pluginRobonomics.service.plugin.basic.ss58);
-    return keyring.allWithContacts;
+    widget.plugin.keyring.setSS58(widget.plugin.basic.ss58);
+    return widget.plugin.keyring.allWithContacts;
   }
 
   String get indexesError => hasIndexesError ? 'Can\'t load indexes' : '';
-  String get datalogDataError => hasDatalogDataError ? 'Can\'t load datalog record' : '';
+  String get datalogDataError =>
+      hasDatalogDataError ? 'Can\'t load datalog record' : '';
 
   void setLoading(bool value) {
     setState(() {
@@ -71,7 +70,8 @@ class _ReadDatalogPageState extends State<ReadDatalogPage> {
     hasDatalogDataError = false;
     setLoading(true);
     try {
-      await loadDatalogData(_selectedAccount!, index).timeout(Duration(seconds: 10));
+      await loadDatalogData(_selectedAccount!, index)
+          .timeout(Duration(seconds: 10));
     } catch (e) {
       setState(() {
         hasDatalogDataError = true;
@@ -122,14 +122,19 @@ class _ReadDatalogPageState extends State<ReadDatalogPage> {
               labelText: 'Address',
             ),
             AnimatedCrossFade(
-              crossFadeState: indexes == null ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+              crossFadeState: indexes == null
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
               duration: Duration(milliseconds: 400),
               firstChild: Column(
                 children: [
                   const SizedBox(height: 4),
                   Text(
                     indexesError,
-                    style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).errorColor),
+                    style: Theme.of(context)
+                        .textTheme
+                        .caption
+                        ?.copyWith(color: Theme.of(context).errorColor),
                   ),
                 ],
               ),
@@ -151,13 +156,17 @@ class _ReadDatalogPageState extends State<ReadDatalogPage> {
                     const SizedBox(height: 4),
                     Text(
                       datalogDataError,
-                      style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).errorColor),
+                      style: Theme.of(context)
+                          .textTheme
+                          .caption
+                          ?.copyWith(color: Theme.of(context).errorColor),
                     ),
                   ],
                   const SizedBox(height: 16),
                   if (datalogData != null)
                     Text(
-                      JsonEncoder.withIndent('  ').convert(datalogData!.jsonData),
+                      JsonEncoder.withIndent('  ')
+                          .convert(datalogData!.jsonData),
                     ),
                 ],
               ),

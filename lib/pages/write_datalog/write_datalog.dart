@@ -7,9 +7,9 @@ import 'package:polkawallet_ui/components/v3/back.dart';
 class WriteDatalogPage extends StatefulWidget {
   static const String route = '/robonomics/write_datalog';
 
-  WriteDatalogPage(this.pluginRobonomics, {Key? key}) : super(key: key);
+  WriteDatalogPage(this.plugin, {Key? key}) : super(key: key);
 
-  final PluginRobonomics pluginRobonomics;
+  final PluginRobonomics plugin;
 
   @override
   State<WriteDatalogPage> createState() => _WriteDatalogPageState();
@@ -60,7 +60,10 @@ class _WriteDatalogPageState extends State<WriteDatalogPage> {
               const SizedBox(height: 4),
               Text(
                 _errorValue ?? '',
-                style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).errorColor),
+                style: Theme.of(context)
+                    .textTheme
+                    .caption
+                    ?.copyWith(color: Theme.of(context).errorColor),
               ),
               const SizedBox(height: 16),
               TxButton(

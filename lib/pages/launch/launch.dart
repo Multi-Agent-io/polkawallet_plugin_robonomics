@@ -10,9 +10,9 @@ import 'package:polkawallet_ui/components/v3/cupertinoSwitch.dart';
 class LaunchPage extends StatefulWidget {
   static const String route = '/robonomics/launch';
 
-  LaunchPage(this.pluginRobonomics, {Key? key}) : super(key: key);
+  LaunchPage(this.plugin, {Key? key}) : super(key: key);
 
-  final PluginRobonomics pluginRobonomics;
+  final PluginRobonomics plugin;
 
   @override
   State<LaunchPage> createState() => _LaunchPageState();
@@ -23,11 +23,10 @@ class _LaunchPageState extends State<LaunchPage> {
   bool _launchValue = false;
   bool _hasError = false;
 
-  PolkawalletApi get api => widget.pluginRobonomics.sdk.api;
+  PolkawalletApi get api => widget.plugin.sdk.api;
   List<KeyPairData> get accounts {
-    final keyring = widget.pluginRobonomics.service.staking.keyring;
-    keyring.setSS58(widget.pluginRobonomics.service.plugin.basic.ss58);
-    return keyring.allWithContacts;
+    widget.plugin.keyring.setSS58(widget.plugin.basic.ss58);
+    return widget.plugin.keyring.allWithContacts;
   }
 
   void setAccount(KeyPairData? account) {
@@ -98,7 +97,10 @@ class _LaunchPageState extends State<LaunchPage> {
             if (_hasError)
               Text(
                 'Address required',
-                style: Theme.of(context).textTheme.caption?.copyWith(color: Theme.of(context).errorColor),
+                style: Theme.of(context)
+                    .textTheme
+                    .caption
+                    ?.copyWith(color: Theme.of(context).errorColor),
               ),
           ],
         ),

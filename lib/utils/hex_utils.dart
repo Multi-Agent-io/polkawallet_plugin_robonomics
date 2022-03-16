@@ -4,8 +4,10 @@ import "dart:typed_data";
 const String _ALPHABET = "0123456789abcdef";
 
 class HexUtils {
-  static String fromHexString(String hexString) =>
-      _HexCodec().decode(hexString.replaceAll('0x', '')).map((symbol) => String.fromCharCode(symbol)).join();
+  static String fromHexString(String hexString) => _HexCodec()
+      .decode(hexString.replaceAll('0x', ''))
+      .map((symbol) => String.fromCharCode(symbol))
+      .join();
 }
 
 /// A codec for encoding and decoding byte arrays to and from
@@ -14,18 +16,18 @@ class _HexCodec extends Codec<List<int>, String> {
   const _HexCodec();
 
   @override
-  Converter<List<int>, String> get encoder => const HexCoder();
+  Converter<List<int>, String> get encoder => const _HexCoder();
 
   @override
   Converter<String, List<int>> get decoder => const _HexDecoder();
 }
 
 /// A converter to encode byte arrays into hexadecimal strings.
-class HexCoder extends Converter<List<int>, String> {
+class _HexCoder extends Converter<List<int>, String> {
   /// If true, the encoder will encode into uppercase hexadecimal strings.
   final bool upperCase;
 
-  const HexCoder({this.upperCase: false});
+  const _HexCoder({this.upperCase: false});
 
   @override
   String convert(List<int> bytes) {

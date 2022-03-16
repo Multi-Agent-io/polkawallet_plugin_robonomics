@@ -31,7 +31,8 @@ class MetaHubPanel extends StatelessWidget {
                 title: 'Write datalog',
                 describe: 'Write datalog record',
               ),
-              onTap: () => Navigator.of(context).pushNamed(WriteDatalogPage.route),
+              onTap: () =>
+                  Navigator.of(context).pushNamed(WriteDatalogPage.route),
             ),
             GestureDetector(
               child: PluginItemCard(
@@ -39,7 +40,8 @@ class MetaHubPanel extends StatelessWidget {
                 title: 'Read datalog',
                 describe: 'Read datalog record',
               ),
-              onTap: () => Navigator.of(context).pushNamed(ReadDatalogPage.route),
+              onTap: () =>
+                  Navigator.of(context).pushNamed(ReadDatalogPage.route),
             ),
           ],
         );
