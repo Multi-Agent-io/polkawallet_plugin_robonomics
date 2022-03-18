@@ -47,10 +47,8 @@ class PluginRobonomics extends PolkawalletPlugin {
 
   @override
   final Map<String, Widget> tokenIcons = {
-    'KSM': Image.asset(
-        'packages/polkawallet_plugin_robonomics/assets/images/tokens/KSM.png'),
-    'DOT': Image.asset(
-        'packages/polkawallet_plugin_robonomics/assets/images/tokens/DOT.png'),
+    'XRT': Image.asset(
+        'packages/polkawallet_plugin_robonomics/assets/images/tokens/XRT.png'),
   };
 
   @override

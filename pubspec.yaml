@@ -8,20 +8,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.3
-  http: ^0.13.3
-  mobx: ^2.0.4
-  flutter_mobx: ^2.0.2
-  flutter_svg: ^0.23.0+1
-  json_annotation: ^4.0.1
   polkawallet_sdk: ^0.3.7
   polkawallet_ui: ^0.3.6
-  sticky_headers: ^0.2.0
-  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   build_runner: ^2.1.2
-  mobx_codegen: ^2.0.2
   json_serializable: ^4.1.4
 
 dependency_overrides:
@@ -33,6 +24,4 @@ dependency_overrides:
 flutter:
   assets:
     - assets/images/public/
-    - assets/images/staking/
-    - assets/images/gov/
     - assets/images/tokens/

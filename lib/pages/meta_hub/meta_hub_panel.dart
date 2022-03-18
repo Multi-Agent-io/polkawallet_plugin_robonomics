@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:polkawallet_plugin_robonomics/pages/launch/launch.dart';
 import 'package:polkawallet_plugin_robonomics/pages/read_datalog/read_datalog.dart';
 import 'package:polkawallet_plugin_robonomics/pages/write_datalog/write_datalog.dart';
@@ -13,39 +12,33 @@ class MetaHubPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Observer(
-      builder: (_) {
-        return Column(
-          children: [
-            GestureDetector(
-              child: PluginItemCard(
-                margin: EdgeInsets.only(bottom: 16),
-                title: 'Launch',
-                describe: 'launch function',
-              ),
-              onTap: () => Navigator.of(context).pushNamed(LaunchPage.route),
-            ),
-            GestureDetector(
-              child: PluginItemCard(
-                margin: EdgeInsets.only(bottom: 16),
-                title: 'Write datalog',
-                describe: 'Write datalog record',
-              ),
-              onTap: () =>
-                  Navigator.of(context).pushNamed(WriteDatalogPage.route),
-            ),
-            GestureDetector(
-              child: PluginItemCard(
-                margin: EdgeInsets.only(bottom: 16),
-                title: 'Read datalog',
-                describe: 'Read datalog record',
-              ),
-              onTap: () =>
-                  Navigator.of(context).pushNamed(ReadDatalogPage.route),
-            ),
-          ],
-        );
-      },
+    return Column(
+      children: [
+        GestureDetector(
+          child: PluginItemCard(
+            margin: EdgeInsets.only(bottom: 16),
+            title: 'Launch',
+            describe: 'launch function',
+          ),
+          onTap: () => Navigator.of(context).pushNamed(LaunchPage.route),
+        ),
+        GestureDetector(
+          child: PluginItemCard(
+            margin: EdgeInsets.only(bottom: 16),
+            title: 'Write datalog',
+            describe: 'Write datalog record',
+          ),
+          onTap: () => Navigator.of(context).pushNamed(WriteDatalogPage.route),
+        ),
+        GestureDetector(
+          child: PluginItemCard(
+            margin: EdgeInsets.only(bottom: 16),
+            title: 'Read datalog',
+            describe: 'Read datalog record',
+          ),
+          onTap: () => Navigator.of(context).pushNamed(ReadDatalogPage.route),
+        ),
+      ],
     );
   }
 }
