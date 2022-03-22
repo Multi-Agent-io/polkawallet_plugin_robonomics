@@ -17,6 +17,7 @@ class PluginRobonomics extends PolkawalletPlugin {
   PluginRobonomics()
       : basic = PluginBasicData(
           name: 'Robonomics',
+          genesisHash: genesis_hash_robonomics,
           ss58: 32,
           primaryColor: robonomics_black,
           gradientColor: Color(0xFF2948d3),
