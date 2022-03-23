@@ -27,5 +27,4 @@ const MaterialColor robonomics_black = const MaterialColor(
   },
 );
 
-const String genesis_hash_robonomics =
-    '0x00000000000000000000000000000000000000000000000000000000000000000095fdc6a85cbd30a0c29e336430a9d6bd2cfc3d2592c6abf63f2aee8dcde746b903170a2e7597b7b7e3d84c05391d139a62b157e78786d8c082f29dcf4c11131400';
+const String genesis_hash_robonomics = '0x631ccc82a078481584041656af292834e1ae6daab61d2875b4dd0c14bb9b17bc';
